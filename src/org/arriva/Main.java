@@ -4,10 +4,7 @@ public class Main {
 
     public static final int GALAXY_WIDTH = 11;
     public static final int GALAXY_HEIGHT= 11;
-    public static final int EMPTY = 0;
-    public static final int LIFE = 1;
-    public static final int NEW_BORN = 2;
-    public static final int OLD = 3;
+
 
     public static void main(String[] args) {
 	    int[][] galaxy = new int[GALAXY_HEIGHT][GALAXY_WIDTH];
@@ -51,20 +48,6 @@ public class Main {
         }
     }
 
-    private static void draw(int[][] galaxy) {
-        for (int[] row : galaxy) {
-            for (int cell : row) {
-                if (cell == LIFE) {
-                    System.out.print("* ");
-                } else {
-                    System.out.print("  ");
-                }
-                //System.out.print(String.format("%d ", cell));
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
 
     private static void BuildNewGeneration(int[][] galaxy) {
         for (int i = 0; i < galaxy.length; i++) {
@@ -172,11 +155,4 @@ public class Main {
         return neighboursCount == 3;
     }
 
-    private static void clearGalaxy(int[][] galaxy) {
-        for (int[] row : galaxy) {
-            for (int cell : row) {
-                cell = EMPTY;
-            }
-        }
-    }
 }
