@@ -1,4 +1,4 @@
-package org.arriva;
+package org.arriva.core;
 
 /**
  * Created by nikita.samoilov on 09.06.2015.

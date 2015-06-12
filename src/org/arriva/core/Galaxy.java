@@ -1,4 +1,4 @@
-package org.arriva;
+package org.arriva.core;
 
 
 import java.util.List;
