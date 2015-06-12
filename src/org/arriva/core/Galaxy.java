@@ -16,6 +16,14 @@ public class Galaxy {
     protected int width;
     protected int height;
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     public int[][] getGalaxyField() {
         return galaxyField;
     }
