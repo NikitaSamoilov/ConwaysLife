@@ -35,13 +35,55 @@ public class Galaxy {
     }
 
     public void buildNextGeneration() {
-        List<CellParams> aliveCells = galaxyHelper.getAliveCells(this);
+        for (int i = 0; i < galaxyField.length; i++) {
+            for (int j = 0; j < galaxyField[i].length; j++) {
+                processNextGenCell(i, j);
+            }
+        }
 
+        for (int i = 0; i < galaxyField.length; i++) {
+            for (int j = 0; j < galaxyField[i].length; j++) {
+                processClearing(i, j);
+            }
+        }
+    }
 
+    protected void processClearing(int row, int col) {
+        switch (galaxyField[row][col]) {
+            case NEW_BORN:
+                galaxyField[row][col] = LIFE;
+                break;
+            case OLD:
+                galaxyField[row][col] = EMPTY;
+                break;
+            default:
+                break;
+        }
+    }
+
+    protected void processNextGenCell(int row, int col) {
+        int neighboursCount = galaxyHelper.getNeighboursCount(this, new CellParams(row, col));
+        switch (galaxyField[row][col]) {
+            case EMPTY:
+                if (neighboursCount == 3) {
+                    galaxyField[row][col] = NEW_BORN;
+                }
+                break;
+            case LIFE:
+                if ((neighboursCount < 2) || (neighboursCount > 3)) {
+                    galaxyField[row][col] = OLD;
+                }
+                break;
+               default:
+                   break;
+        }
     }
 
     protected void initializeGalaxy() {
         galaxyField = new int[height][width];
         galaxyHelper.clearGalaxy(this);
+        galaxyField[3][3] = LIFE;
+        galaxyField[3][4] = LIFE;
+        galaxyField[3][5] = LIFE;
     }
 }

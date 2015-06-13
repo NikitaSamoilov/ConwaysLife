@@ -3,6 +3,7 @@ package org.arriva.gui;
 import org.arriva.core.Galaxy;
 import org.arriva.gui.components.GalaxyFieldDisplayer;
 import org.arriva.gui.components.GalaxyTextArea;
+import org.arriva.gui.listeners.NextButtonListener;
 
 import javax.swing.*;
 
@@ -24,6 +25,8 @@ public class SimpleGuiWindow extends GuiWindow {
         add(gta);
         fieldDisplayer = gta;
         fieldDisplayer.update();
+
+        nextButton.addActionListener(new NextButtonListener(fieldDisplayer));
     }
 
     protected JButton buildNextButton() {

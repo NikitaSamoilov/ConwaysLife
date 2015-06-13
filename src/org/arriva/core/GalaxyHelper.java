@@ -78,7 +78,7 @@ public class GalaxyHelper {
     }
 
     private boolean isAlive(int value) {
-        return value == Galaxy.LIFE;
+        return value == Galaxy.LIFE || value == Galaxy.OLD;
     }
 
     private int[][] getField(Galaxy galaxy) {
