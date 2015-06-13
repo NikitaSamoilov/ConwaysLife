@@ -3,6 +3,7 @@ package org.arriva.gui.components;
 import org.arriva.core.Galaxy;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class GalaxyTextArea extends JTextArea implements GalaxyFieldDisplayer {
 
@@ -16,6 +17,10 @@ public class GalaxyTextArea extends JTextArea implements GalaxyFieldDisplayer {
         return galaxy;
     }
 
+    @Override
+    public Component getComponent() {
+        return this;
+    }
 
     @Override
     public void update() {

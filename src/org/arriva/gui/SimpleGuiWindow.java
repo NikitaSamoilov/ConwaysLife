@@ -21,9 +21,8 @@ public class SimpleGuiWindow extends GuiWindow {
         nextButton = buildNextButton();
         add(nextButton);
 
-        GalaxyTextArea gta = buildFieldDisplayer();
-        add(gta);
-        fieldDisplayer = gta;
+        fieldDisplayer = buildFieldDisplayer();
+        add(fieldDisplayer.getComponent());
         fieldDisplayer.update();
 
         nextButton.addActionListener(new NextButtonListener(fieldDisplayer));
@@ -35,7 +34,7 @@ public class SimpleGuiWindow extends GuiWindow {
         return button;
     }
 
-    protected GalaxyTextArea buildFieldDisplayer() {
+    protected GalaxyFieldDisplayer buildFieldDisplayer() {
         GalaxyTextArea textArea = new GalaxyTextArea();
         textArea.setGalaxy(galaxy);
         textArea.setRows(galaxy.getHeight());
