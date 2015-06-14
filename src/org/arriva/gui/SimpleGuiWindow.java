@@ -2,6 +2,8 @@ package org.arriva.gui;
 
 import org.arriva.core.Galaxy;
 import org.arriva.gui.components.GalaxyFieldDisplayer;
+import org.arriva.gui.components.GalaxyFieldDisplayerFactory;
+import org.arriva.gui.components.GalaxyFieldDisplayerType;
 import org.arriva.gui.components.GalaxyTextArea;
 import org.arriva.gui.listeners.NextButtonListener;
 
@@ -35,11 +37,9 @@ public class SimpleGuiWindow extends GuiWindow {
     }
 
     protected GalaxyFieldDisplayer buildFieldDisplayer() {
-        GalaxyTextArea textArea = new GalaxyTextArea();
-        textArea.setGalaxy(galaxy);
-        textArea.setRows(galaxy.getHeight());
-        textArea.setColumns(galaxy.getWidth());
-        textArea.setBounds(10, 50, 200, 200);
-        return textArea;
+        GalaxyFieldDisplayer displayer = GalaxyFieldDisplayerFactory.getDisplayer(GalaxyFieldDisplayerType.DrawPanel);
+        displayer.setGalaxy(galaxy);
+        displayer.setBounds(10, 50, 200, 200);
+        return displayer;
     }
 }
