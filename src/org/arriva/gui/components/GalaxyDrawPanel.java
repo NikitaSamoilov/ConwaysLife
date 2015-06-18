@@ -37,7 +37,7 @@ public class GalaxyDrawPanel extends JPanel implements GalaxyFieldDisplayer {
         gridParams.setGraphics(g);
         gridParams.setCanvasHeight(getHeight());
         gridParams.setCanvasWidth(getWidth());
-        gridParams.setGridColor(Color.black);
+        gridParams.setGridColor(Color.lightGray);
         gridParams.setThickness(1);
         gridParams.setIndent(10);
         getDrawHelper().drawCell(gridParams);

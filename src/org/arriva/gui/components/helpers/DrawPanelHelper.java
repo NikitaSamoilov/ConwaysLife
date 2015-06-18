@@ -7,5 +7,5 @@ import java.awt.*;
 
 public interface DrawPanelHelper {
     void drawCell(GridParams gridParams);
-    void drawGalaxy(Galaxy galaxy);
+    void drawGalaxy(GridParams gridParams);
 }

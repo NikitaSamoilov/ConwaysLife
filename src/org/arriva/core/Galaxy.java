@@ -79,6 +79,10 @@ public class Galaxy {
         }
     }
 
+    public List<CellParams> getAliveCells() {
+        return galaxyHelper.getAliveCells(this);
+    }
+
     protected void initializeGalaxy() {
         galaxyField = new int[height][width];
         galaxyHelper.clearGalaxy(this);
