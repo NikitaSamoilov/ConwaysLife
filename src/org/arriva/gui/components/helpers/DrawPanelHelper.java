@@ -6,6 +6,6 @@ import org.arriva.core.Galaxy;
 import java.awt.*;
 
 public interface DrawPanelHelper {
-    void DrawCell(GridParams gridParams);
-    void DrawGalaxy(Galaxy galaxy);
+    void drawCell(GridParams gridParams);
+    void drawGalaxy(Galaxy galaxy);
 }

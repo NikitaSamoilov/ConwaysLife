@@ -12,22 +12,42 @@ public class DrawPanelHelperImpl implements DrawPanelHelper {
 
 
     @Override
-    public void DrawCell(GridParams gridParams) {
-        Graphics2D g2 = (Graphics2D)gridParams.getGraphics();
-        Stroke stroke = new BasicStroke(gridParams.getThickness());
+    public void drawGalaxy(Galaxy galaxy) {
+        //TODO: implement it!
+    }
 
+    @Override
+    public void drawCell(GridParams gridParams) {
+        drawHorizontalLines(gridParams);
+        drawVerticalLines(gridParams);
+    }
+
+    private void drawHorizontalLines(GridParams gridParams) {
         Galaxy galaxy = gridParams.getGalaxy();
+        Stroke stroke = new BasicStroke(gridParams.getThickness());
+        Graphics2D g2 = (Graphics2D)gridParams.getGraphics();
+        int cellHeight = gridParams.getCanvasHeight() / galaxy.getHeight();
         for (int i = 0; i < galaxy.getHeight(); i++) {
-            int top = (10 * i);
-            Line2D line = new Line2D.Double(0, top, gridParams.getCanvasWidth(), top);
+            int yCoord = (cellHeight * i);
+            Line2D line = new Line2D.Double(0, yCoord, gridParams.getCanvasWidth(), yCoord);
             g2.setColor(gridParams.getGridColor());
             g2.setStroke(stroke);
             g2.draw(line);
         }
     }
 
-    @Override
-    public void DrawGalaxy(Galaxy galaxy) {
-        //TODO: implement it!
+    private void drawVerticalLines(GridParams gridParams) {
+        Galaxy galaxy = gridParams.getGalaxy();
+        Stroke stroke = new BasicStroke(gridParams.getThickness());
+        Graphics2D g2 = (Graphics2D)gridParams.getGraphics();
+        int cellWidth = gridParams.getCanvasWidth() / galaxy.getWidth();
+        for (int i = 0; i < galaxy.getHeight(); i++) {
+            int xCoord = (cellWidth * i);
+            Line2D line = new Line2D.Double(xCoord, 0, xCoord, gridParams.getCanvasHeight());
+            g2.setColor(gridParams.getGridColor());
+            g2.setStroke(stroke);
+            g2.draw(line);
+        }
     }
+
 }

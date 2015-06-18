@@ -7,7 +7,6 @@ import org.arriva.gui.components.helpers.impl.DrawPanelHelperImpl;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Line2D;
 
 public class GalaxyDrawPanel extends JPanel implements GalaxyFieldDisplayer {
 
@@ -28,15 +27,18 @@ public class GalaxyDrawPanel extends JPanel implements GalaxyFieldDisplayer {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        DrawGrid(g);
+    }
 
+    private void DrawGrid(Graphics g) {
         GridParams gridParams =  new GridParams();
         gridParams.setGalaxy(galaxy);
         gridParams.setGraphics(g);
         gridParams.setCanvasHeight(getHeight());
         gridParams.setCanvasWidth(getWidth());
         gridParams.setGridColor(Color.black);
-        gridParams.setThickness(2);
-        getDrawHelper().DrawCell(gridParams);
+        gridParams.setThickness(1);
+        getDrawHelper().drawCell(gridParams);
     }
 
     @Override
