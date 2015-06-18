@@ -12,8 +12,8 @@ public class SimpleGuiWindow extends GuiWindow {
     private JButton nextButton;
     private GalaxyFieldDisplayer fieldDisplayer;
 
-    public SimpleGuiWindow(int width, int height, Galaxy galaxy) {
-        super(width, height, galaxy);
+    public SimpleGuiWindow(GuiWindowParams params) {
+        super(params);
     }
 
     @Override

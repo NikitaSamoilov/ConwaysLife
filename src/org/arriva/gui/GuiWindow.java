@@ -8,16 +8,16 @@ public abstract class GuiWindow extends JFrame {
 
     protected Galaxy galaxy;
 
-    protected GuiWindow(int width, int height, Galaxy galaxy) {
-        this.galaxy = galaxy;
-        initMainWindow(width, height);
+    protected GuiWindow(GuiWindowParams params) {
+        this.galaxy = params.getGalaxy();
+        initMainWindow(params.getWidth(), params.getHeight());
         buildAndAttachElements();
     }
 
-    public static GuiWindow getWindow(GuiWindowType type,int width, int height, Galaxy galaxy) {
+    public static GuiWindow getWindow(GuiWindowType type,GuiWindowParams params) {
         switch (type) {
             case SIMPLE:
-                return new SimpleGuiWindow(width, height, galaxy);
+                return new SimpleGuiWindow(params);
             default:
                 return null;
         }
