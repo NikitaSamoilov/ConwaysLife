@@ -27,6 +27,7 @@ public class GalaxyDrawPanel extends JPanel implements GalaxyFieldDisplayer {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.fillRect(0, 0, getWidth(), getHeight());
         DrawGrid(g);
     }
 
@@ -38,6 +39,7 @@ public class GalaxyDrawPanel extends JPanel implements GalaxyFieldDisplayer {
         gridParams.setCanvasWidth(getWidth());
         gridParams.setGridColor(Color.black);
         gridParams.setThickness(1);
+        gridParams.setIndent(10);
         getDrawHelper().drawCell(gridParams);
     }
 

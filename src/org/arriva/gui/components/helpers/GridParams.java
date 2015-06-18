@@ -12,6 +12,7 @@ public class GridParams {
     private int canvasWidth;
     private int canvasHeight;
     private Color gridColor;
+    private int indent = 0;
 
     public int getThickness() {
         return thickness;
@@ -59,6 +60,14 @@ public class GridParams {
 
     public void setGridColor(Color gridColor) {
         this.gridColor = gridColor;
+    }
+
+    public int getIndent() {
+        return indent;
+    }
+
+    public void setIndent(int indent) {
+        this.indent = indent;
     }
 
 
