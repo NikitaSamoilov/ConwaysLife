@@ -12,6 +12,7 @@ public abstract class GuiWindow extends JFrame {
         this.galaxy = params.getGalaxy();
         initMainWindow(params.getWidth(), params.getHeight());
         buildAndAttachElements();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static GuiWindow getWindow(GuiWindowType type,GuiWindowParams params) {
