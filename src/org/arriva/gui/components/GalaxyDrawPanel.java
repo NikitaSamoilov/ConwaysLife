@@ -1,6 +1,9 @@
 package org.arriva.gui.components;
 
 import org.arriva.core.Galaxy;
+import org.arriva.gui.components.helpers.DrawPanelHelper;
+import org.arriva.gui.components.helpers.GridParams;
+import org.arriva.gui.components.helpers.impl.DrawPanelHelperImpl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,21 +12,31 @@ import java.awt.geom.Line2D;
 public class GalaxyDrawPanel extends JPanel implements GalaxyFieldDisplayer {
 
     private Galaxy galaxy;
+    private DrawPanelHelper drawHelper;
+
+    public DrawPanelHelper getDrawHelper() {
+        if (drawHelper == null) {
+            drawHelper = new DrawPanelHelperImpl();
+        }
+        return drawHelper;
+    }
+
+    public void setDrawHelper(DrawPanelHelper drawHelper) {
+        this.drawHelper = drawHelper;
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;
 
-        Stroke stroke = new BasicStroke(2);
-
-        for (int i = 0; i < galaxy.getHeight(); i++) {
-            int top = (10 * i);
-            Line2D line = new Line2D.Double(0, top, getWidth(), top);
-            g2.setColor(Color.black);
-            g2.setStroke(stroke);
-            g2.draw(line);
-        }
+        GridParams gridParams =  new GridParams();
+        gridParams.setGalaxy(galaxy);
+        gridParams.setGraphics(g);
+        gridParams.setCanvasHeight(getHeight());
+        gridParams.setCanvasWidth(getWidth());
+        gridParams.setGridColor(Color.black);
+        gridParams.setThickness(2);
+        getDrawHelper().DrawCell(gridParams);
     }
 
     @Override
