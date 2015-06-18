@@ -9,10 +9,14 @@ public class GalaxyTextArea extends JTextArea implements GalaxyFieldDisplayer {
 
     private Galaxy galaxy;
 
+    @Override
     public void setGalaxy(Galaxy galaxy) {
         this.galaxy = galaxy;
+        setRows(galaxy.getHeight());
+        setColumns(galaxy.getWidth());
     }
 
+    @Override
     public Galaxy getGalaxy() {
         return galaxy;
     }
